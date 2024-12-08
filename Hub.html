@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Collection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c;
+            color: #fff;
+        }
+
+        header {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+            color: #ff0080;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background: linear-gradient(45deg, #ff0080, #8000ff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 5px solid #ff0080;
+        }
+
+        .game-card h3 {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            background-color: #222;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .game-card a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .game-card:hover a {
+            opacity: 1;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        My Game Collection
+    </header>
+
+    <div class="game-grid">
+        <!-- Example Game Card -->
+        <div class="game-card">
+            <img src="https://static.vecteezy.com/system/resources/previews/014/273/448/original/abstract-colorful-blob-shapes-element-design-free-png.png" alt="Game Image">
+            <h3>Blob</h3>
+            <a href="https://t3chiejack.github.io/Blob/" target="_blank"></a> <!-- Replace with your game link -->
+        </div>
+
+        <div class="game-card">
+            <img src="https://th.bing.com/th/id/R.a98b8397c561b09a1641be6cbf8e61c4?rik=Z3JRkZe7Gjnpuw&riu=http%3a%2f%2fshrek-loves-you.weebly.com%2fuploads%2f1%2f0%2f5%2f6%2f105696109%2fshrek-face_1_orig.png&ehk=2psanX0a%2buu7g8U126Ey7WKD63WHP3by2s3WHnwrlwc%3d&risl=&pid=ImgRaw&r=0" alt="Game Image">
+            <h3>King shrek</h3>
+            <a href="https://t3chiejack.github.io/KingShrek/" target="_blank"></a> <!-- Replace with your game link -->
+        </div>
+
+        <!-- Add more game cards here -->
+    </div>
+
+    <footer>
+        <p>Made By TechieJack</p>
+    </footer>
+
+</body>
+</html>
