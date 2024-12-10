@@ -11,75 +11,13 @@
             padding: 0;
             background-color: #1c1c1c;
             color: #fff;
+            overflow: hidden; /* Prevent scrolling during loading */
         }
 
-        header {
-            background-color: #222;
-            padding: 20px;
-            text-align: center;
-            font-size: 2rem;
-            color: #ff0080;
+        header, .game-grid, footer {
+            display: none; /* Hide content until loading finishes */
         }
 
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .game-card {
-            position: relative;
-            background: linear-gradient(45deg, #ff0080, #8000ff);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .game-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-bottom: 5px solid #ff0080;
-        }
-
-        .game-card h3 {
-            margin: 0;
-            padding: 15px;
-            text-align: center;
-            background-color: #222;
-            font-size: 1.2rem;
-            color: #fff;
-        }
-
-        .game-card a {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            text-decoration: none;
-        }
-
-        footer {
-            background-color: #222;
-            padding: 20px;
-            text-align: center;
-            font-size: 1rem;
-            color: #fff;
-        }
-
-        /* Loading screen styles */
         #loading-screen {
             position: fixed;
             top: 0;
@@ -97,30 +35,47 @@
             max-width: 100%;
             max-height: 100%;
         }
+
+        #main-content {
+            display: none; /* Initially hide main content */
+        }
     </style>
 </head>
 <body>
     <!-- Loading screen -->
-<div id="loading-screen">
-    <video autoplay muted>
-        <source src="assets/loading-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-</div>
-
-
-    <!-- Website content -->
-    <header>
-        My Game Collection
-    </header>
-
-    <div class="game-grid">
-        <a href="https://t3chiejack.github.io/KingShrek/" class="game-card" target="_blank">
-            <img src="https://th.bing.com/th/id/R.a98b8397c561b09a1641be6cbf8e61c4?rik=Z3JRkZe7Gjnpuw&riu=http%3a%2f%2fshrek-loves-you.weebly.com%2fuploads%2f1%2f0%2f5%2f6%2f105696109%2fshrek-face_1_orig.png&ehk=2psanX0a%2buu7g8U126Ey7WKD63WHP3by2s3WHnwrlwc%3d&risl=&pid=ImgRaw&r=0" alt="Game Image">
-            <h3>King Shrek</h3>
-        </a>
-        <!-- Other game cards as in your original code -->
+    <div id="loading-screen">
+        <video autoplay muted>
+            <source src="assets/loading-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
-    <footer>
-        <p>Made By TechieJack</
+    <!-- Main content -->
+    <div id="main-content">
+        <header>
+            My Game Collection
+        </header>
+
+        <div class="game-grid">
+            <a href="https://t3chiejack.github.io/KingShrek/" class="game-card" target="_blank">
+                <img src="https://th.bing.com/th/id/R.a98b8397c561b09a1641be6cbf8e61c4?rik=Z3JRkZe7Gjnpuw&riu=http%3a%2f%2fshrek-loves-you.weebly.com%2fuploads%2f1%2f0%2f5%2f6%2f105696109%2fshrek-face_1_orig.png&ehk=2psanX0a%2buu7g8U126Ey7WKD63WHP3by2s3WHnwrlwc%3d&risl=&pid=ImgRaw&r=0" alt="Game Image">
+                <h3>King Shrek</h3>
+            </a>
+            <!-- Add other game cards here -->
+        </div>
+
+        <footer>
+            <p>Made By TechieJack</p>
+        </footer>
+    </div>
+
+    <script>
+        const video = document.querySelector('#loading-screen video');
+        video.addEventListener('ended', () => {
+            document.getElementById('loading-screen').style.display = 'none'; // Hide loading screen
+            document.getElementById('main-content').style.display = 'block'; // Show main content
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        });
+    </script>
+</body>
+</html>
