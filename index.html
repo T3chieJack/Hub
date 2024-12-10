@@ -11,7 +11,7 @@
             padding: 0;
             background-color: #1c1c1c;
             color: #fff;
-            overflow: hidden;
+            overflow: hidden; /* Prevent scroll during loading */
         }
 
         #loading-screen {
@@ -39,6 +39,7 @@
 
         #main-content {
             display: none;
+            overflow: auto; /* Enable scroll for content */
         }
 
         header {
@@ -198,8 +199,9 @@
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading-screen');
             const mainContent = document.getElementById('main-content');
-            loadingScreen.style.display = 'none';
-            mainContent.style.display = 'block';
+            loadingScreen.style.display = 'none'; // Hide loading screen
+            mainContent.style.display = 'block'; // Show main content
+            document.body.style.overflow = 'auto'; // Allow scrolling after load
         });
     </script>
 </body>
