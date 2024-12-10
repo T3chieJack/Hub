@@ -11,7 +11,7 @@
             padding: 0;
             background-color: #1c1c1c;
             color: #fff;
-            overflow: hidden; /* Prevent scrolling during loading */
+            overflow: hidden;
         }
 
         #loading-screen {
@@ -25,7 +25,7 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            overflow: hidden; /* Prevent overflow on loading screen */
+            overflow: hidden;
         }
 
         #loading-screen video {
@@ -34,11 +34,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Stretches the video to cover the screen */
+            object-fit: cover;
         }
 
         #main-content {
-            display: none; /* Initially hidden until loading ends */
+            display: none;
         }
 
         header {
@@ -194,26 +194,13 @@
     </div>
 
     <script>
-        // Get references to elements
-        const video = document.querySelector('#loading-screen video');
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainContent = document.getElementById('main-content');
-
-        // When the video ends, hide the loading screen and show the main content
-        video.addEventListener('ended', () => {
-            loadingScreen.style.display = 'none'; // Hide loading screen
-            mainContent.style.display = 'block'; // Show main content
-            document.body.style.overflow = 'auto'; // Enable scrolling
+        // Remove loading screen after content is ready (on all devices)
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainContent = document.getElementById('main-content');
+            loadingScreen.style.display = 'none';
+            mainContent.style.display = 'block';
         });
-
-        // Optional: Add a fallback in case the video fails to play
-        setTimeout(() => {
-            if (loadingScreen.style.display !== 'none') {
-                loadingScreen.style.display = 'none';
-                mainContent.style.display = 'block';
-                document.body.style.overflow = 'auto';
-            }
-        }, 10000); // Fallback timeout (10 seconds)
     </script>
 </body>
 </html>
